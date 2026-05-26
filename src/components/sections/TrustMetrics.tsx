@@ -5,7 +5,7 @@ const metrics = [
   { value: 1200, suffix: "+", label: "Happy clients" },
   { value: 12, suffix: "+", label: "Years of expertise" },
   { value: 8500, suffix: "+", label: "Returns filed" },
-  { value: 50, suffix: " Cr+", label: "Investments advised" },
+  { value: 5, suffix: " k+", label: "Investments advised" },
 ];
 
 export function TrustMetrics() {
