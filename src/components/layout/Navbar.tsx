@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { site } from "@/data/site";
 import { services } from "@/data/services";
@@ -118,6 +118,15 @@ export function Navbar() {
           <CallNowButton href={site.phoneHref}>
             <Phone className="w-4 h-4" /> Call Now
           </CallNowButton>
+          <Link
+            href={site.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative inline-flex items-center gap-2 px-5 h-11 rounded-full bg-[#25D366] text-white font-semibold text-sm hover:bg-[#20BA5A] transition-colors"
+            aria-label="Chat on WhatsApp"
+          >
+            <MessageCircle className="w-4 h-4" /> WhatsApp
+          </Link>
         </div>
 
         <button

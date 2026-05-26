@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import type { Service } from "@/data/services";
+import { site } from "@/data/site";
 
 type ContactService = Pick<Service, "slug" | "name">;
 
@@ -14,10 +15,23 @@ export function ContactForm({ services }: { services: ContactService[] }) {
     setSending(true);
     const form = event.currentTarget;
 
+    const formData = new FormData(form);
+    const name = formData.get("name");
+    const phone = formData.get("phone");
+    const email = formData.get("email");
+    const service = formData.get("service");
+    const message = formData.get("message");
+
+    // Create WhatsApp message
+    const whatsappMessage = `*New Contact Form Submission*%0A%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}%0AService: ${service || "Not specified"}%0AMessage: ${message}`;
+    const whatsappUrl = `https://wa.me/${site.whatsappHref.split("/").pop()}?text=${whatsappMessage}`;
+
     window.setTimeout(() => {
       setSending(false);
       form.reset();
-      toast.success("Thanks! We'll be in touch within 24 hours.");
+      // Redirect to WhatsApp with the form data
+      window.open(whatsappUrl, "_blank");
+      toast.success("Opening WhatsApp to send your message...");
     }, 700);
   };
 
