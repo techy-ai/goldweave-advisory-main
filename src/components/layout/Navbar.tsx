@@ -43,11 +43,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        onDark
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${onDark
           ? "bg-[var(--navy-deep)]/85 backdrop-blur-xl border-b border-white/10"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
@@ -72,9 +71,8 @@ export function Navbar() {
               >
                 <Link
                   href={l.to}
-                  className={`relative px-4 py-2 text-[15px] ${
-                    isActive(l.to) ? "text-[var(--gold)]" : "text-white/80"
-                  } hover:text-[var(--gold-soft)] transition-colors group inline-flex items-center gap-1`}
+                  className={`relative px-4 py-2 text-[15px] ${isActive(l.to) ? "text-[var(--gold)]" : "text-white/80"
+                    } hover:text-[var(--gold-soft)] transition-colors group inline-flex items-center gap-1`}
                 >
                   {l.label}
                   {isServices && <ChevronDown className="w-3.5 h-3.5 opacity-70" />}
