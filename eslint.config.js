@@ -9,7 +9,11 @@ import nextPlugin from "@next/eslint-plugin-next";
 export default tseslint.config(
   { ignores: ["dist", ".output", ".vinxi"] },
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    extends: [
+      js.configs.recommended,
+      ...tseslint.configs.recommended,
+      "plugin:@next/next/recommended",
+    ],
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
